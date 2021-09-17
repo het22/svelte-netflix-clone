@@ -19,6 +19,18 @@
       <a href="/">내가 찜한 콘텐츠</a>
     </li>
   </ul>
+  <ul class="menus">
+    <li class="menu">
+      <img class="icon" src="assets/icon_search.svg" alt="search" />
+    </li>
+    <li class="menu">
+      <img class="icon" src="assets/icon_bell.svg" alt="noti" />
+    </li>
+    <li class="menu menu--user">
+      <img class="user" src="assets/icon_user.svg" alt="user" />
+      <img class="arrow" src="assets/arrow_down.svg" alt="arrow" />
+    </li>
+  </ul>
 </header>
 
 <style>
@@ -64,4 +76,41 @@
 		color: white;
 		pointer-events: none;
 	}
+
+  .menus {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    list-style:none;
+  }
+  .menu {
+    margin-left: 24px;
+    cursor: pointer;
+  }
+  .menu--user {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    height: 18px;
+    filter: invert(1);
+  }
+  .user {
+    padding: 3px;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  .arrow {
+    margin-left: 12px;
+    width: 9px;
+    filter: invert(1);
+    transition: 0.2s transform;
+  }
+  .menu--user:hover .arrow {
+    transform: rotate(180deg)
+  }
 </style>
