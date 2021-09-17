@@ -35,14 +35,20 @@
 
 <style>
 	header {
-		position: sticky;
+		position: fixed;
+    z-index: 1;
 		top: 0;
 		padding: 0 42px;
+    width: 100%;
 		height: 66px;
 		display: flex;
 		align-items: center;
 		color: white;
-		background-color: transparent;
+		background: linear-gradient(
+      rgba(0,0,0,0.5),
+      rgba(0,0,0,0)
+    );
+    box-sizing: border-box;
 	}
 
 	.logo {
