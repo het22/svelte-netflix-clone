@@ -43,7 +43,6 @@
 		height: 66px;
 		display: flex;
 		align-items: center;
-		color: white;
 		background: linear-gradient(
       rgba(0,0,0,0.5),
       rgba(0,0,0,0)
