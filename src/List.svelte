@@ -8,6 +8,10 @@
   <div class="items">
     {#each items as item}
       <div class="item">
+        <img
+          src={"https://image.tmdb.org/t/p/w500/" + item.backdrop_path}
+          alt={item.title}
+        />
       </div>
     {/each}
   </div>
@@ -40,5 +44,10 @@
   }
   .item:last-of-type {
     margin-right: 0;
+  }
+  .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 </style>
