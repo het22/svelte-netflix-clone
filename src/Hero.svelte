@@ -21,7 +21,7 @@
 <style>
   .hero {
     position: relative;
-    height: 70vh;
+    height: 600px;
     -webkit-mask-image: -webkit-gradient(
       linear,
       left 60%,
