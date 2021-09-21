@@ -16,6 +16,10 @@ tmdb.interceptors.response.use(res => {
   return res.data;
 })
 
-export function popularMovies() {
-  return tmdb.get("/movie/popular");
+export function movies(type) {
+  return tmdb.get(`/movie/${type}`);
+}
+
+export function tvs(type) {
+  return tmdb.get(`/tv/${type}`);
 }
