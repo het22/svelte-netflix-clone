@@ -1,24 +1,37 @@
 <script>
   import * as request from "../scripts/request";
   import List from "./List.svelte";
+
+  const contents = [
+    {
+      title: "지금 뜨는 영화",
+      fetch: () => request.movies("now_playing")
+    },
+    {
+      title: "높은 평가를 받은 영화",
+      fetch: () => request.movies("top_rated")
+    },
+    {
+      title: "오늘 방영 예정",
+      fetch: () => request.tvs("airing_today")
+    },
+    {
+      title: "인기 TV 프로그램",
+      fetch: () => request.tvs("popular")
+    },
+    {
+      title: "평점이 높은 TV 프로그램",
+      fetch: () => request.tvs("top_rated")
+    }
+  ]
 </script>
 
 <div class="contents">
-  {#await request.movies("now_playing") then { results }}
-    <List title="지금 뜨는 영화" items={results}></List>
-  {/await}
-  {#await request.movies("top_rated") then { results }}
-    <List title="높은 평가를 받은 영화" items={results}></List>
-  {/await}
-  {#await request.tvs("airing_today") then { results }}
-    <List title="오늘 방영 예정" items={results}></List>
-  {/await}
-  {#await request.tvs("popular") then { results }}
-    <List title="인기 TV 프로그램" items={results}></List>
-  {/await}
-  {#await request.tvs("top_rated") then { results }}
-    <List title="평점이 높은 TV 프로그램" items={results}></List>
-  {/await}
+  {#each contents as content}
+    {#await content.fetch() then { results }}
+      <List title={content.title} items={results}></List>
+    {/await}
+  {/each}
 </div>
 
 <style>
