@@ -1,4 +1,5 @@
 <script>
+  import Item from "./Item.svelte";
   export let title;
   export let items = [];
 </script>
@@ -7,15 +8,7 @@
   <div class="list__title">{title}</div>
   <div class="items">
     {#each items as item(item.id)}
-      <div class="item">
-        <img
-          src={
-            "https://image.tmdb.org/t/p/w500/" +
-            (item.backdrop_path || item.poster_path)
-          }
-          alt={item.title}
-        />
-      </div>
+      <Item item={item} />
     {/each}
   </div>
 </div>
@@ -38,23 +31,5 @@
   }
   .items::-webkit-scrollbar {
     display: none;
-  }
-  .item {
-    margin-right: 6px;
-    flex: 0 0 auto;
-    width: 300px;
-    height: 150px;
-    background-color: #444;
-    border-radius: 6px;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  .item:last-of-type {
-    margin-right: 0;
-  }
-  .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 </style>
